@@ -1,0 +1,52 @@
+format="""\
+$username\
+$hostname/$localip\
+$directory\
+$git_branch\
+$cmd_duration\
+\n$character\
+"""
+
+# Disable the blank line at the start of the prompt
+add_newline=true
+
+[username]
+style_user="white"
+style_root="black"
+format=" 😎[$user](#ffc000)"
+disabled=false
+show_always=true
+
+[hostname]
+ssh_only=false
+format=" 💻[$hostname]($style)"
+style="#dd00dd"
+disabled=false
+
+[directory]
+format=" 📁[$path]($style)[$read_only]($read_only_style)"
+
+[character]
+success_symbol="🟢"
+error_symbol="🔴"
+
+[localip]
+ssh_only=false
+disabled=false
+format="[$localipv4]($style)"
+style="#dd00dd"
+
+[env_var.STARSHIP_DISTRO]
+format="$env_value"
+variable="STARSHIP_DISTRO"
+disabled=false
+
+[git_branch]
+format=" 🌱[$branch(:$remote_branch)]($style)"
+style="#00ff00"
+
+[cmd_duration]
+show_milliseconds=true
+style="#fffc00"
+format=" ⌛[$duration]($style)"
+min_time=0
